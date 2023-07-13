@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css"/>
+    <title>To-Do List</title>
+</head>
+<body>
+      <h1>To-Do List</h1>
+
+
+
+<!--  LIST ITEAMS  -->
+  <table>
+       {{#each iteamlist}}
+          <tr>
+    <form method="post">
+              
+                   <td><input id="{{@index}}" name="{{@index}}" type="checkbox" {{checkbox}}  />  </td>             
+                  <td><label for="{{@index}}"> {{@index}} - {{iteam}} </label></td>
+          </tr>
+                      {{!-- {{else}} --}}
+                          <p class="empty">No to-do items.</p>
+        
+        {{/each}}
+        
+<!--  SAVE REMOVE BUTTOMS  -->
+         <tr>
+           <td colspan="6">
+           <input type="submit" name="saveChecked" formaction="save" value="Save"/>
+           <input type="submit" name="removeChecked"  formaction="remove" value="Remove Checked"/>
+           </form>
+           </td>
+          </tr>
+
+<!--  TEXT INPUT  -->
+    </table>
+        <form method="post" action="add">
+         Add new item:
+           
+           <input type="text" name="iteam" placeholder="Enter item description" style="width: 60ex" autofocus required />
+           <input type="hidden" type="checkbox"  name="checkbox" value= " " />
+           <input type="submit" value="Add"/>
+         </form>
+ 
+
+</body>
+</html>
